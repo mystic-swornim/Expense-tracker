@@ -1,6 +1,7 @@
 # Expense Tracker App
 
 This is a monthly budget and expense tracking app designed by me(Swornim pandit).
+
 It allows users to set a budget, add expenses, and visualize spending using a pie chart.
 
 ## Features
