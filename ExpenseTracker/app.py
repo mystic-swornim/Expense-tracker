@@ -3,13 +3,10 @@ import webbrowser
 from flask import Flask
 from threading import Timer
 
-# 1. Initialize the Flask application
 app = Flask(__name__)
-# Suppress Flask's default logging for a cleaner terminal output
+
 app.logger.setLevel('ERROR')
 
-# 2. Define the HTML content as a triple-quoted string
-# This string contains ALL HTML, CSS, and JavaScript for the application.
 HTML_CONTENT = """
 <!DOCTYPE html>
 <html lang="en">
@@ -1120,7 +1117,6 @@ HTML_CONTENT = """
 </html>
 """
 
-# 3. Define the Flask route to serve the embedded HTML
 @app.route('/')
 def home():
     """Returns the single-file HTML application content."""
@@ -1134,7 +1130,7 @@ def open_browser(port):
         print(f"Failed to auto-open browser: {e}. Please open http://127.0.0.1:{port} manually.")
 
 if __name__ == '__main__':
-    # Flask runs on port 5000 by default
+
     port = 5000
     print(f"\n==================================================")
     print(f"  🚀 Starting Single-File Expense Tracker...")
@@ -1143,8 +1139,9 @@ if __name__ == '__main__':
     print(f"  ℹ️  Press CTRL+C to stop the server.")
     print(f"==================================================")
     
-    # Open the browser 1 second after the server starts
+
     Timer(1, open_browser, args=(port,)).start()
     
-    # Run the Flask app
+
     app.run(host='0.0.0.0', port=port, debug=False)
+
